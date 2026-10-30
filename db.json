@@ -1,0 +1,105 @@
+{
+  "rooms": [
+    {
+      "id": "2",
+      "roomNumber": "102",
+      "roomType": "Double",
+      "price": 2500,
+      "capacity": 2,
+      "status": "Available"
+    },
+    {
+      "id": "3",
+      "roomNumber": "103",
+      "roomType": "Deluxe",
+      "price": 4000,
+      "capacity": 3,
+      "status": "Booked"
+    },
+    {
+      "id": "yGBxMjMR-g0",
+      "roomNumber": "555",
+      "roomType": "Deluxe",
+      "price": 4000,
+      "capacity": 5,
+      "status": "Available"
+    },
+    {
+      "id": "p0eaiLoXd4I",
+      "roomNumber": "106",
+      "roomType": "Single",
+      "price": 5000,
+      "capacity": 1,
+      "status": "Booked"
+    }
+  ],
+  "customers": [
+    {
+      "id": "1",
+      "name": "Rahul Kumar",
+      "email": "rahul@example.com",
+      "phone": "9876543210"
+    },
+    {
+      "id": "RyPtnKJR0Z8",
+      "name": "yaswanth varma",
+      "email": "yaswanth.kosuri24@sasi.ac.in",
+      "phone": "9876543211"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "R02i0IWPbao",
+      "customerId": "1",
+      "customerName": "Rahul Kumar",
+      "roomId": "3",
+      "roomNumber": "103",
+      "checkIn": "2026-10-30",
+      "checkOut": "2026-11-05",
+      "days": 6,
+      "pricePerDay": 4000,
+      "totalAmount": 24000,
+      "status": "Cancelled"
+    },
+    {
+      "id": "KIJ0MLe8McM",
+      "customerId": "RyPtnKJR0Z8",
+      "customerName": "yaswanth varma",
+      "roomId": "yGBxMjMR-g0",
+      "roomNumber": "555",
+      "checkIn": "2026-10-30",
+      "checkOut": "2026-10-31",
+      "days": 1,
+      "pricePerDay": 4000,
+      "totalAmount": 4000,
+      "status": "Cancelled"
+    },
+    {
+      "id": "IpLWwS0d9VQ",
+      "customerId": "1",
+      "customerName": "Rahul Kumar",
+      "roomId": "3",
+      "roomNumber": "103",
+      "checkIn": "2026-11-01",
+      "checkOut": "2026-11-02",
+      "days": 1,
+      "pricePerDay": 4000,
+      "totalAmount": 4000,
+      "status": "Confirmed"
+    },
+    {
+      "id": "WJTgI8MmpyY",
+      "customerId": "1",
+      "customerName": "Rahul Kumar",
+      "roomId": "p0eaiLoXd4I",
+      "roomNumber": "106",
+      "checkIn": "2026-11-03",
+      "checkOut": "2026-11-04",
+      "days": 1,
+      "pricePerDay": 5000,
+      "totalAmount": 5000,
+      "status": "Confirmed"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
