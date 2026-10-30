@@ -22,7 +22,7 @@
       "roomType": "Deluxe",
       "price": 4000,
       "capacity": 5,
-      "status": "Available"
+      "status": "Booked"
     },
     {
       "id": "p0eaiLoXd4I",
@@ -39,6 +39,14 @@
       "price": 5000,
       "capacity": 4,
       "status": "Booked"
+    },
+    {
+      "id": "N1xYOSwGppI",
+      "roomNumber": "052",
+      "roomType": "Double",
+      "price": 50000,
+      "capacity": 4,
+      "status": "Available"
     }
   ],
   "customers": [
@@ -59,6 +67,12 @@
       "name": "kumar",
       "email": "nitla@gmail.com",
       "phone": "9988776655"
+    },
+    {
+      "id": "AC-ZD4zIhRU",
+      "name": "vikas",
+      "email": "vikas@gmail.com",
+      "phone": "7789654123"
     }
   ],
   "bookings": [
@@ -125,6 +139,19 @@
       "days": 1,
       "pricePerDay": 5000,
       "totalAmount": 5000,
+      "status": "Confirmed"
+    },
+    {
+      "id": "V0u_lfjWoWo",
+      "customerId": "RyPtnKJR0Z8",
+      "customerName": "yaswanth varma",
+      "roomId": "yGBxMjMR-g0",
+      "roomNumber": "555",
+      "checkIn": "2026-10-30",
+      "checkOut": "2026-10-31",
+      "days": 1,
+      "pricePerDay": 4000,
+      "totalAmount": 4000,
       "status": "Confirmed"
     }
   ],

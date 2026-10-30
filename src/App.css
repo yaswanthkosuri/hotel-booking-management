@@ -997,3 +997,322 @@ td {
     font-size: 24px;
   }
 }
+.success-message {
+  background-color: #e8f8ed;
+  color: #18743a;
+  border: 1px solid #a7e5b8;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin: 15px 0;
+  font-weight: 600;
+  text-align: center;
+  animation: showMessage 0.4s ease-in-out;
+}
+
+@keyframes showMessage {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================================
+   DARK MODE TOGGLE
+================================== */
+
+.theme-toggle-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 18px;
+  border: 1px solid #dfe2e8;
+  border-radius: 8px;
+  background: white;
+  color: #30394a;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background: #f0f1f5;
+}
+
+.theme-toggle-btn span {
+  font-size: 17px;
+}
+
+/* ==================================
+   DARK MODE - COMMON STYLES
+================================== */
+
+body.dark-theme {
+  background: #121826;
+  color: #e5e7eb;
+}
+
+body.dark-theme .app-container {
+  background: #121826;
+  color: #e5e7eb;
+}
+
+body.dark-theme .main-content {
+  background: #121826;
+  color: #e5e7eb;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme strong,
+body.dark-theme label {
+  color: #f3f4f6;
+}
+
+body.dark-theme .subtitle,
+body.dark-theme .panel-subtitle,
+body.dark-theme .room-count,
+body.dark-theme .welcome-text {
+  color: #aab4c5;
+}
+
+/* Dashboard cards and panels */
+
+body.dark-theme .stat-card,
+body.dark-theme .panel,
+body.dark-theme .room-summary-card,
+body.dark-theme .rooms-panel,
+body.dark-theme .customer-summary-card,
+body.dark-theme .customers-panel,
+body.dark-theme .booking-summary-card,
+body.dark-theme .bookings-panel {
+  background: #1e293b;
+  color: #e5e7eb;
+  border-color: #374151;
+}
+
+/* Tables */
+
+body.dark-theme table {
+  color: #e5e7eb;
+}
+
+body.dark-theme th {
+  color: #aab4c5;
+  border-bottom-color: #374151;
+}
+
+body.dark-theme td {
+  color: #e5e7eb;
+  border-bottom-color: #374151;
+}
+
+/* Input fields and dropdowns */
+
+body.dark-theme input,
+body.dark-theme select,
+body.dark-theme textarea {
+  background: #273449;
+  color: #f3f4f6;
+  border-color: #475569;
+}
+
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+  color: #aab4c5;
+}
+
+body.dark-theme input:focus,
+body.dark-theme select:focus,
+body.dark-theme textarea:focus {
+  border-color: #c49a5a;
+}
+
+/* Form popup */
+
+body.dark-theme .room-form-card {
+  background: #1e293b;
+  color: #e5e7eb;
+}
+
+body.dark-theme .form-heading p {
+  color: #aab4c5;
+}
+
+body.dark-theme .close-btn {
+  color: #e5e7eb;
+}
+
+/* Booking calculation */
+
+body.dark-theme .booking-calculation {
+  background: #273449;
+  color: #e5e7eb;
+}
+
+body.dark-theme .booking-calculation div,
+body.dark-theme .booking-calculation strong,
+body.dark-theme .booking-calculation .booking-total {
+  color: #e5e7eb;
+}
+
+body.dark-theme .booking-calculation .booking-total {
+  border-top-color: #475569;
+}
+
+/* Revenue box */
+
+body.dark-theme .revenue-box {
+  background: #273449;
+}
+
+/* Buttons */
+
+body.dark-theme .theme-toggle-btn {
+  background: #273449;
+  color: #f3f4f6;
+  border-color: #475569;
+}
+
+body.dark-theme .theme-toggle-btn:hover {
+  background: #37465c;
+}
+
+body.dark-theme .cancel-btn {
+  background: #374151;
+  color: #f3f4f6;
+}
+
+/* Empty states */
+
+body.dark-theme .empty-state p,
+body.dark-theme .no-rooms,
+body.dark-theme .no-customers {
+  color: #aab4c5;
+}
+
+/* Responsive toggle */
+
+@media (max-width: 650px) {
+  .theme-toggle-container {
+    margin-bottom: 15px;
+  }
+
+  .theme-toggle-btn {
+    padding: 9px 13px;
+    font-size: 12px;
+  }
+}
+/* =================================
+   PREMIUM HOTEL SIDEBAR
+================================= */
+
+.sidebar {
+  background: linear-gradient(180deg, #172337 0%, #202f45 100%);
+  box-shadow: 5px 0 20px rgba(0, 0, 0, 0.12);
+}
+
+/* YV Brand Icon */
+
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #d9b36c, #b88942);
+  color: #172337;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  box-shadow: 0 4px 12px rgba(217, 179, 108, 0.25);
+}
+
+/* Brand Name */
+
+.brand h2 {
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.brand small {
+  color: #c5a66e;
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* Menu Heading */
+
+.menu-heading {
+  color: #8998ad;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Navigation Items */
+
+.menu-item {
+  border-radius: 10px;
+  margin-bottom: 8px;
+  color: #c4cedb;
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* Active Navigation */
+
+.menu-item.active {
+  background: linear-gradient(90deg, #c49a5a, #dfbd80);
+  color: #172337;
+  font-weight: 700;
+  box-shadow: 0 5px 15px rgba(196, 154, 90, 0.2);
+}
+
+.menu-item.active span {
+  color: #172337;
+}
+
+/* Administrator Profile */
+
+.sidebar-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 20px;
+}
+
+.profile-circle {
+  background: linear-gradient(135deg, #c49a5a, #e2c58e);
+  color: #172337;
+  font-weight: 800;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-bottom strong {
+  color: #ffffff;
+}
+
+.sidebar-bottom small {
+  color: #aab7c8;
+}

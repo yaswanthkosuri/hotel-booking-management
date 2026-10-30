@@ -114,14 +114,18 @@ function Customers() {
           ...customerData
         });
 
-        setMessage("Customer updated successfully.");
+        setMessage(
+          "🎉 Customer details updated successfully!"
+        );
       } else {
         await addCustomer({
           id: String(Date.now()),
           ...customerData
         });
 
-        setMessage("Customer added successfully.");
+        setMessage(
+          "🎉 Congratulations! Customer registered successfully!"
+        );
       }
 
       setShowForm(false);
@@ -141,9 +145,16 @@ function Customers() {
 
     if (!confirmed) return;
 
+    setMessage("");
+    setError("");
+
     try {
       await deleteRecord("customers", id);
-      setMessage("Customer deleted successfully.");
+
+      setMessage(
+        "Customer deleted successfully."
+      );
+
       await loadCustomers();
     } catch (err) {
       setError("Unable to delete customer.");
@@ -193,6 +204,7 @@ function Customers() {
       )}
 
       <div className="customer-summary">
+
         <div className="customer-summary-card">
           <span>Total Customers</span>
           <strong>{customers.length}</strong>
@@ -211,6 +223,7 @@ function Customers() {
             {new Set(customers.map(customer => customer.phone)).size}
           </strong>
         </div>
+
       </div>
 
       <div className="customers-panel">
@@ -232,6 +245,7 @@ function Customers() {
 
         <div className="table-wrapper">
           <table>
+
             <thead>
               <tr>
                 <th>Customer ID</th>
@@ -285,6 +299,7 @@ function Customers() {
                 ))
               )}
             </tbody>
+
           </table>
         </div>
 

@@ -195,8 +195,9 @@ function Bookings() {
         status: "Booked"
       });
 
+      // Congratulations message after successful booking
       setMessage(
-        `Booking ${newBookingId} created successfully!`
+        `🎉 Congratulations! Your booking ${newBookingId} has been confirmed successfully!`
       );
 
       setShowForm(false);
@@ -364,6 +365,7 @@ function Bookings() {
                     <td>{booking.checkIn}</td>
                     <td>{booking.checkOut}</td>
                     <td>{booking.days}</td>
+
                     <td>
                       ₹{Number(booking.totalAmount).toLocaleString("en-IN")}
                     </td>

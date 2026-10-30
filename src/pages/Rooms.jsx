@@ -35,10 +35,13 @@ function Rooms() {
     try {
       setLoading(true);
       setError("");
+
       const data = await getRooms();
       setRooms(data);
     } catch (err) {
-      setError("Unable to load rooms. Check whether JSON Server is running.");
+      setError(
+        "Unable to load rooms. Check whether JSON Server is running."
+      );
     } finally {
       setLoading(false);
     }
@@ -46,6 +49,7 @@ function Rooms() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
     setForm({
       ...form,
       [name]: value
@@ -56,6 +60,7 @@ function Rooms() {
     setForm(emptyRoom);
     setEditingId(null);
     setMessage("");
+    setError("");
     setShowForm(true);
   };
 
@@ -70,17 +75,25 @@ function Rooms() {
 
     setEditingId(room.id);
     setMessage("");
+    setError("");
     setShowForm(true);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     setMessage("");
     setError("");
 
     const roomNumber = form.roomNumber.trim();
 
-    if (!roomNumber || Number(form.price) <= 0 || Number(form.capacity) < 1) {
+    if (
+      !roomNumber ||
+      !Number.isFinite(Number(form.price)) ||
+      Number(form.price) <= 0 ||
+      !Number.isInteger(Number(form.capacity)) ||
+      Number(form.capacity) < 1
+    ) {
       setError("Please enter valid room details.");
       return;
     }
@@ -110,18 +123,25 @@ function Rooms() {
           id: editingId,
           ...roomData
         });
-        setMessage("Room updated successfully.");
+
+        setMessage(
+          "🎉 Room details updated successfully!"
+        );
       } else {
         await addRoom({
           id: String(Date.now()),
           ...roomData
         });
-        setMessage("Room added successfully.");
+
+        setMessage(
+          "🎉 Congratulations! Your new room has been added successfully!"
+        );
       }
 
       setShowForm(false);
       setForm(emptyRoom);
       setEditingId(null);
+
       await loadRooms();
     } catch (err) {
       setError("Unable to save room. Please try again.");
@@ -135,9 +155,16 @@ function Rooms() {
 
     if (!confirmed) return;
 
+    setMessage("");
+    setError("");
+
     try {
       await deleteRecord("rooms", id);
-      setMessage("Room deleted successfully.");
+
+      setMessage(
+        "Room deleted successfully."
+      );
+
       await loadRooms();
     } catch (err) {
       setError("Unable to delete room.");
@@ -174,15 +201,28 @@ function Rooms() {
           </p>
         </div>
 
-        <button className="add-room-btn" onClick={openAddForm}>
+        <button
+          className="add-room-btn"
+          onClick={openAddForm}
+        >
           + Add New Room
         </button>
       </div>
 
-      {message && <div className="success-message">{message}</div>}
-      {error && <div className="error-message">{error}</div>}
+      {message && (
+        <div className="success-message" role="status">
+          {message}
+        </div>
+      )}
+
+      {error && (
+        <div className="error-message" role="alert">
+          {error}
+        </div>
+      )}
 
       <div className="room-summary">
+
         <div className="room-summary-card">
           <span>Total Rooms</span>
           <strong>{rooms.length}</strong>
@@ -201,16 +241,19 @@ function Rooms() {
             {rooms.filter(room => room.status === "Booked").length}
           </strong>
         </div>
+
       </div>
 
       <div className="rooms-panel">
 
         <h3>All Rooms</h3>
+
         <p className="panel-subtitle">
           View, search, filter and manage hotel rooms.
         </p>
 
         <div className="room-filters">
+
           <input
             type="text"
             placeholder="Search room number..."
@@ -237,10 +280,12 @@ function Rooms() {
             <option value="Available">Available</option>
             <option value="Booked">Booked</option>
           </select>
+
         </div>
 
         <div className="table-wrapper">
           <table>
+
             <thead>
               <tr>
                 <th>Room No.</th>
@@ -262,21 +307,34 @@ function Rooms() {
               ) : (
                 filteredRooms.map(room => (
                   <tr key={room.id}>
-                    <td><strong>{room.roomNumber}</strong></td>
-                    <td>{room.roomType}</td>
-                    <td>₹{Number(room.price).toLocaleString("en-IN")}</td>
-                    <td>{room.capacity} Person(s)</td>
+
                     <td>
-                      <span className={
-                        room.status === "Available"
-                          ? "room-status available"
-                          : "room-status booked"
-                      }>
+                      <strong>{room.roomNumber}</strong>
+                    </td>
+
+                    <td>{room.roomType}</td>
+
+                    <td>
+                      ₹{Number(room.price).toLocaleString("en-IN")}
+                    </td>
+
+                    <td>{room.capacity} Person(s)</td>
+
+                    <td>
+                      <span
+                        className={
+                          room.status === "Available"
+                            ? "room-status available"
+                            : "room-status booked"
+                        }
+                      >
                         {room.status}
                       </span>
                     </td>
+
                     <td>
                       <div className="room-actions">
+
                         <button
                           className="edit-btn"
                           onClick={() => openEditForm(room)}
@@ -290,27 +348,35 @@ function Rooms() {
                         >
                           Delete
                         </button>
+
                       </div>
                     </td>
+
                   </tr>
                 ))
               )}
             </tbody>
+
           </table>
         </div>
 
         <p className="room-count">
           Showing {filteredRooms.length} of {rooms.length} rooms
         </p>
+
       </div>
 
       {showForm && (
         <div className="form-overlay">
+
           <div className="room-form-card">
 
             <div className="form-heading">
               <div>
-                <h2>{editingId !== null ? "Edit Room" : "Add New Room"}</h2>
+                <h2>
+                  {editingId !== null ? "Edit Room" : "Add New Room"}
+                </h2>
+
                 <p>Enter the room information below.</p>
               </div>
 
@@ -363,6 +429,7 @@ function Rooms() {
                 type="number"
                 name="capacity"
                 min="1"
+                step="1"
                 placeholder="Number of people"
                 value={form.capacity}
                 onChange={handleChange}
@@ -380,6 +447,7 @@ function Rooms() {
               </select>
 
               <div className="form-buttons">
+
                 <button
                   type="button"
                   className="cancel-btn"
@@ -388,13 +456,19 @@ function Rooms() {
                   Cancel
                 </button>
 
-                <button type="submit" className="save-btn">
+                <button
+                  type="submit"
+                  className="save-btn"
+                >
                   {editingId !== null ? "Update Room" : "Save Room"}
                 </button>
+
               </div>
 
             </form>
+
           </div>
+
         </div>
       )}
 
